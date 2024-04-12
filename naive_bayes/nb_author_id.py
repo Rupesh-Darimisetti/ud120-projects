@@ -24,9 +24,18 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 ##############################################################
 # Enter Your Code Here
-
-
-
+from sklearn.navie_bytes import GuassianNB
+clf = GuassianNB()
+to = time()
+clf.fit(features_train,labels_train)
+print("Trainig time: {} s".format( round(time() -t0,3)))
+t0 = time()
+pred = clf.predict(features_test)
+print(pred)
+print("Predicitng time: {} s".format( round(time() -t0,3)))
+prettyPicture(clf,features_test,labels_test)
+plt.show()
+clf.score(features_test)
 ##############################################################
 
 ##############################################################
